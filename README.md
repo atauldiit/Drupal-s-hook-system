@@ -1,14 +1,14 @@
 Drupal’s hook system is a powerful feature that allows modules to interact with the core functionality of Drupal. Hooks are functions that are defined in modules and are called at specific points in the overall lifecycle of a project. Here’s a conceptual example of how I’ve used Drupal’s hook system in a project:
 
-Project: Custom Content Moderation
+**Project: Custom Content Moderation**
 
 Objective: Implement a system where articles submitted by users are reviewed by a team of editors before being published.
 
-1. Define a Custom Module:
+**1. Define a Custom Module:**
 
  • Module name: custom_moderation
 
-2. Implement hook_node_insert():
+**2. Implement hook_node_insert():**
 
  • Purpose: Trigger actions when a new article node is created.
  • Example:
@@ -24,7 +24,7 @@ function custom_moderation_node_insert($node) {
 
 
 
-3. Implement hook_form_alter():
+**3. Implement hook_form_alter():**
 
  • Purpose: Alter the article submission form to include a custom message for users.
  • Example:
@@ -39,7 +39,7 @@ function custom_moderation_form_alter(&$form, &$form_state, $form_id) {
 
 
 
-4. Implement hook_cron():
+**4. Implement hook_cron():**
 
  • Purpose: Automated check for ‘pending_review’ articles and notify editors.
  • Example:
@@ -54,7 +54,7 @@ function custom_moderation_cron() {
 
 
 
-5. Implement hook_permissions():
+**5. Implement hook_permissions():**
 
  • Purpose: Define custom permissions for reviewing articles.
  • Example:
@@ -70,7 +70,7 @@ function custom_moderation_permissions() {
 
 
 
-Advanced Considerations:
+**Advanced Considerations:**
 
  • Cache Clearing: Ensuring that any changes made by hooks are reflected immediately by clearing relevant caches.
  • Security Checks: Implementing checks to prevent unauthorized access or actions.
